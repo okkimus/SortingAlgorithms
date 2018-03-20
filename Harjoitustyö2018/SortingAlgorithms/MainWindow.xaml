@@ -1,0 +1,23 @@
+﻿<Window x:Class="SortingAlgorithms.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SortingAlgorithms"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <TextBlock x:Name="sceneTitle" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Lajittelijavertailija" VerticalAlignment="Top" FontSize="28"/>
+        <TextBlock x:Name="sceneTitle1" HorizontalAlignment="Center" Margin="0,150,0,0" TextWrapping="Wrap" Text="Valitse lajiteltavan listan pituus" VerticalAlignment="Top" FontSize="18"/>
+
+        <ComboBox x:Name="listLenghtComboBox" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag">
+            <ComboBoxItem Content="256 lukua" Tag="1"  />
+            <ComboBoxItem Content="512 lukua" Tag="2"/>
+            <ComboBoxItem Content="1024 lukua" Tag="3"/>
+            <ComboBoxItem Content="2048 lukua" Tag="4"/>
+        </ComboBox>
+
+        <Button x:Name="printButton" Content="Luo lista" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Width="100" Click="PrintButton_Click"/>
+
+    </Grid>
+</Window>
