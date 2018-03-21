@@ -19,80 +19,129 @@ namespace SortingAlgorithms
     public partial class MainWindow : Window
     {
 
-        protected int arvo;
-        protected int[] lista;
+        private int value;
+        private int[] list;
+        private Boolean listSorted = false;
+
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        //"Luo lista" painikkeen toiminta
-        public void PrintButton_Click(object sender, EventArgs e)
+
+
+        //"Näytä lista" painikkeen toiminta
+        //Näyttää listan uudessa ikkunassa
+        private void ShowListButton_Click(object sender, EventArgs e)
         {
 
             //Käynnistä uusi ikkuna, jossa on textBlock, johon lisätään luotu lista.
-            Window1 listaIkkuna = new Window1();
-            listaIkkuna.listaBlock.Text = string.Join(", ", RandomLista(ListaPituus()));
-            listaIkkuna.Show();
+            Window1 listWindow = new Window1();
 
+            if(list != null)
+            {
+                listWindow.listTextBlock.Text = string.Join(", ", list);
+            }
+            //listWindow.listaBlock.Text = string.Join(", ", list);
+            listWindow.Show();
+
+        }
+
+
+        //"Luo lista" painikkeen toiminta
+        //Metodi tallentaa int[] list -arrayhin random lukuja lajittelua varten
+        private void MakeListButton_Click(object sender, RoutedEventArgs e)
+        {
+            RandomListMaker(ListLength());
+            listCreatedNotification.Visibility = Visibility.Visible;
         }
 
 
         //Tämä metodi määrää lajiteltavan listan pituuden.
         //Käyttäjä valitsee haluamansa listan pituuden listLenghtComboBoxilla.
-        public int ListaPituus()
+        public int ListLength()
         {
 
             //Tägit on asetettu Comboboxin itemeille MainWindow.xaml tiedostossa
-            var tägi = ((ComboBoxItem)listLenghtComboBox.SelectedItem).Tag.ToString();
+            var tag = ((ComboBoxItem)listLenghtComboBox.SelectedItem).Tag.ToString();
 
-            if (tägi.Equals("1"))
+            if (tag.Equals("1"))
             {
-                arvo = 256;
+                value = 256;
             }
 
-            else if (tägi.Equals("2"))
+            else if (tag.Equals("2"))
             {
-                arvo = 512;
+                value = 512;
             }
 
-            else if (tägi.Equals("3"))
+            else if (tag.Equals("3"))
             {
-                arvo = 1024;
+                value = 1024;
             }
 
-            else if (tägi.Equals("4"))
+            else if (tag.Equals("4"))
             {
-                arvo = 2048;
+                value = 2048;
             }
 
-            return arvo;
+            return value;
         }
 
 
         //Tämä metodi luo n pituisen sekoitetun listan ilman duplikaatteja
-        //Ajatuksena on, että parametriksi annetaan metodi ListaPituus()
-        public int[] RandomLista(int n)
+        //Ajatuksena on, että parametriksi annetaan metodi ListLength()
+        public int[] RandomListMaker(int n)
         {
-            lista = new int[n];
+            list = new int[n];
             Random rng = new Random();
-            for (int i = 1; i < lista.Length; i++)
+            for (int i = 1; i < list.Length; i++)
             {
-                int rngArvo = rng.Next(1, n + 1);
-                if (lista.Contains(rngArvo))
+                int rngValue = rng.Next(1, n + 1);
+                if (list.Contains(rngValue))
                 {
                     i--;
                 }
                 else
                 {
-                    lista[i] = rngArvo;
+                    list[i] = rngValue;
                 }
 
 
             }
 
-            return lista;
+            return list;
+        }
+
+       
+        
+        //"Lajittele lista" -painikkeen toiminta
+        //Lajittelee tallennetun listan käyttäjän valitsemalla lajittelualgoritmilla
+        private void SortListButton_Click(object sender, RoutedEventArgs e)
+        {
+            listSortedNotification.Visibility = Visibility.Visible;
+            listSorted = true;
+        }
+
+
+        //"Näytä lajiteltu lista" -painikkeen toiminta
+        //Näyttää lajiteltu lista uudessa ikkunassa showListButton_Click() metodin tyyliin
+        private void ShowSortedListButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 listWindow = new Window1();
+
+            if (listSorted == true && list != null)
+            {
+                listWindow.listTextBlock.Text = string.Join(", ", list);
+            }
+
+            else
+            {
+                listWindow.listTextBlock.Text = "Listaa ei ole vielä lajiteltu";
+            }
+
+            listWindow.Show();
         }
     }
 }
