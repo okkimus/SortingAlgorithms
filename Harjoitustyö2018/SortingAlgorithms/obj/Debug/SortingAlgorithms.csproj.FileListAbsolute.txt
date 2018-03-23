@@ -1,0 +1,16 @@
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\bin\Debug\SortingAlgorithms.exe.config
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\bin\Debug\SortingAlgorithms.exe
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\bin\Debug\SortingAlgorithms.pdb
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csprojResolveAssemblyReference.cache
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\MainWindow.g.cs
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\Window1.g.cs
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\App.g.cs
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms_MarkupCompile.cache
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\MainWindow.baml
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\Window1.baml
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.g.resources
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.Properties.Resources.resources
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csproj.GenerateResource.cache
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csproj.CoreCompileInputs.cache
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.exe
+E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb
