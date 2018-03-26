@@ -14,3 +14,19 @@ E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\Sortin
 E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csproj.CoreCompileInputs.cache
 E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.exe
 E:\Stuff\Ohjelmointi\Csharp projektit\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\bin\Debug\SortingAlgorithms.exe.config
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\bin\Debug\SortingAlgorithms.exe
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\bin\Debug\SortingAlgorithms.pdb
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csprojResolveAssemblyReference.cache
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\MainWindow.baml
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\Window1.baml
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\MainWindow.g.cs
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\Window1.g.cs
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\App.g.cs
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms_MarkupCompile.cache
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.g.resources
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.Properties.Resources.resources
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csproj.GenerateResource.Cache
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csproj.CoreCompileInputs.cache
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.exe
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb

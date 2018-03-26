@@ -120,6 +120,7 @@ namespace SortingAlgorithms
         //Lajittelee tallennetun listan käyttäjän valitsemalla lajittelualgoritmilla
         private void SortListButton_Click(object sender, RoutedEventArgs e)
         {
+            SortingMachine.BubbleSort(list);
             listSortedNotification.Visibility = Visibility.Visible;
             listSorted = true;
         }
