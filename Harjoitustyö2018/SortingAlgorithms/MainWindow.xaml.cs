@@ -99,5 +99,14 @@ namespace SortingAlgorithms
 
             listWindow.Show();
         }
+
+        private void AlgorithmInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 listWindow = new Window1();
+
+            listWindow.listTextBlock.Text = "";
+
+            listWindow.Show();
+        }
     }
 }
