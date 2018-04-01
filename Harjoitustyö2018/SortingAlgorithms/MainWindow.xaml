@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Sorting Algorithm Tester" Height="700" Width="900">
+        Title="Lajittelijavertailija" Height="700" Width="900">
 
     <Viewbox StretchDirection="Both" Stretch="Uniform">
         <Grid>
@@ -19,7 +19,6 @@
                 <ComboBoxItem Content="4096 lukua" Tag="12"/>
                 <ComboBoxItem Content="8192 lukua" Tag="13"/>
                 <ComboBoxItem Content="16,384 lukua" Tag="14"/>
-                <ComboBoxItem Content="32,768 lukua" Tag="15"/>
             </ComboBox>
 
             <Button x:Name="showListButton" Content="Näytä lista" HorizontalAlignment="Center" Margin="467,280,325,0" VerticalAlignment="Top" Width="100" Click="ShowListButton_Click"/>
@@ -34,7 +33,10 @@
                 <ComboBoxItem Content="Kuplalajittelu" Tag="B"/>
                 <ComboBoxItem Content="Lomituslajittelu" Tag="C"/>
             </ComboBox>
-            <Button x:Name="algorithmInfoButton" Content="Info"  HorizontalAlignment="Center" Margin="180,412,0,0" VerticalAlignment="Top" Width="50" Click="AlgorithmInfoButton_Click"></Button>
+
+            <Button x:Name="algorithmInfoButton" HorizontalAlignment="Right" Margin="0,410,352,159" Width="22" Height="22" Click="AlgorithmInfoButton_Click">
+                <Image Source="questonmark.png"/>
+            </Button>
 
             <Button x:Name="sortListButton" Content="Lajittele lista" HorizontalAlignment="Center" Margin="255,500,417,0" VerticalAlignment="Top" Width="120" Click="SortListButton_Click"/>
             <Button x:Name="showSortedListButton" Content="Näytä lajiteltu lista" HorizontalAlignment="Center" Margin="417,500,255,0" VerticalAlignment="Top" Width="120" Click="ShowSortedListButton_Click"/>

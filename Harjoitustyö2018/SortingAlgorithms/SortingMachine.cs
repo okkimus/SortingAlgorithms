@@ -22,6 +22,7 @@ namespace SortingAlgorithms
                     }
                 }
             }
+
         }
 
         public static void HeapSort(int[] list)
