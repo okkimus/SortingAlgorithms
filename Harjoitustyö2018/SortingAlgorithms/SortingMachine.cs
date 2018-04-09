@@ -27,37 +27,68 @@ namespace SortingAlgorithms
 
         public static void HeapSort(int[] list)
         {
-            for (int i = 1; i < list.Length; i++)
+            Heapify(list);
+            int listSize = list.Length;
+
+            int end = listSize - 1;
+
+            while (end > 0)
             {
-                for (int j = 0; j < list.Length - i; j++)
-                {
-                    if (list[j] > list[j + 1])
-                    {
-                        int temp = list[j];
-                        list[j] = list[j + 1];
-                        list[j + 1] = temp;
-                    }
-                }
+                SwapIndices(list, end, 0);
+
+                end--;
+
+                SiftDown(list, 0, end);
             }
         }
 
-        public static void Heapify(int[] list, int index)
+        public static void Heapify(int[] list)
         {
-            
+            int listSize = list.Length;
+            // find the parent on last node
+            int start = (listSize - 1) / 2;
+
+            while (start >= 0)
+            {
+                SiftDown(list, start, listSize - 1);
+
+                start--;
+            }
         }
 
-        public static void ShiftDown(int[] list, int start, int end)
+        public static void SiftDown(int[] list, int start, int end)
         {
             int root = start;
-            int listSize = list.Length;
-            int leftChild = root * 2 + 1;
-            int rightChild  = root * 2 + 2;
 
-            while (leftChild <= listSize)
+            while (root * 2 + 1 <= end)
             {
+                int swap = root;
+                int leftChild = swap * 2 + 1;
+                int rightChild = swap * 2 + 2;
+                
+                if (list[swap] < list[leftChild])
+                {
+                    swap = leftChild;
+                }
+                if (rightChild <= end && list[swap] < list[rightChild])
+                {
+                    swap = rightChild;
+                }
 
-                //if (list[start] < list[0]);
+                if (swap == root)
+                {
+                    return;
+                }
+                SwapIndices(list, root, swap);
+                root = swap;
             }
+        }
+
+        public static void SwapIndices(int[] list, int a, int b)
+        {
+            int temp = list[a];
+            list[a] = list[b];
+            list[b] = temp;
         }
     }
 }
