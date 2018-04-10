@@ -9,7 +9,7 @@ namespace SortingAlgorithms
     class ListMaker
     {
 
-        //RandomListMaker() luo listan sekalaisia lukuja, jonka ohjelma lajittelee käyttäjän valitsemalla algoritmilla
+        //RandomListMaker() luo listan sekalaisessa järjestyksessä olevia kokonaislukuja 
         public static int[] RandomListMaker(int n)
         {
             int[] rndmList = new int[n];

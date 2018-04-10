@@ -67,7 +67,8 @@ namespace SortingAlgorithms
         public int ListLength()
         {
 
-            //Tägit listLengthComboBoxin itemeille annettuja joilla lasketaan listan pituus.
+            //Jokaiselle listLengthComboBoxin itemille annettu uniikki Tag.
+            //Itemien Tagit ovat kokonaislukuja joidenka avulla listan pituus voidaan laskea.
             var tag = Convert.ToInt32(((ComboBoxItem)listLengthComboBox.SelectedItem).Tag.ToString());
             
             //Listan pituus on 2 potenssiin valitun ComboBoxItemin tägi.
@@ -168,7 +169,7 @@ namespace SortingAlgorithms
                     "on erityisen hyödyllinen linkitettyjen listojen järjestämisessä.";
             }
 
-            //Algoritmien selityksien lähteenä Wikipedia.
+            //Algoritmien selityksien lähteenä käytetty Wikipediaa.
             listWindow.Show();
         }
     }
