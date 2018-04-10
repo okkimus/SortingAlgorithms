@@ -43,6 +43,8 @@
 
             <TextBlock x:Name="listSortedNotification" HorizontalAlignment="Center" Margin="240,570,413,0" Text="Algoritmi suoritti lajittelun ajassa: " VerticalAlignment="Top" FontSize="16" Visibility="Hidden"/>
 
+            <Button x:Name="compareAllButton" Content="Suorita kaikki" HorizontalAlignment="Center" Margin="255,600,417,0" VerticalAlignment="Top" Width="120" Click="CompareSortsButton_Click"/>
+            
         </Grid>
     </Viewbox>
 </Window>

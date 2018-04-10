@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Timer.cs" />
     <Compile Include="ListMaker.cs" />
     <Compile Include="SortingMachine.cs" />
     <Compile Include="Window1.xaml.cs">

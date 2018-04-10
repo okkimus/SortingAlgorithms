@@ -90,5 +90,32 @@ namespace SortingAlgorithms
             list[a] = list[b];
             list[b] = temp;
         }
+
+        public static void Quicksort(int[] list, int lo, int hi)
+        {
+            if (lo < hi)
+            {
+                int p = Partition(list, lo, hi);
+                Quicksort(list, lo, p - 1);
+                Quicksort(list, p, hi);
+            }
+        }
+
+        private static int Partition(int[] list, int lo, int hi)
+        {
+            int pivot = list[hi];
+            int i = lo - 1;
+
+            for (int j = lo; j < hi; j++)
+            {
+                if (list[j] < pivot)
+                {
+                    i++;
+                    SwapIndices(list, j, i);
+                }
+            }
+            SwapIndices(list, i + 1, hi);
+            return i + 1;
+        }
     }
 }

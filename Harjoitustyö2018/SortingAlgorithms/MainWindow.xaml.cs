@@ -24,6 +24,7 @@ namespace SortingAlgorithms
         private int[] unsortedList;
         private int[] tempList;
         private Boolean listSorted = false;
+        private Timer timer = new Timer();
 
         public MainWindow()
         {
@@ -81,7 +82,7 @@ namespace SortingAlgorithms
         //Lajittelee tallennetun listan käyttäjän valitsemalla lajittelualgoritmilla.
         private void SortListButton_Click(object sender, RoutedEventArgs e)
         {
-            SortingMachine.HeapSort(list);
+            SortingMachine.Quicksort(list, 0, list.Length - 1);
             listSortedNotification.Visibility = Visibility.Visible;
             listSorted = true;
 
@@ -111,6 +112,23 @@ namespace SortingAlgorithms
             listWindow.Show();
         }
 
+        private void CompareSortsButton_Click(object sender, RoutedEventArgs e)
+        {
+            long[] results = timer.TimeAll(30, list);
+
+            Window1 infoWindow = new Window1();
+
+            String resultString = String.Format("The list was sorted with three different sorting algorithms. \n"
+                + "Times of execution:\n"
+                + "Bubblesort {0} ms,\n"
+                + "Heapsort {1} ms,\n"
+                + "Quicksort {2} ms,\n",
+                results[0], results[1], results[2]);
+
+            infoWindow.listTextBlock.Text = resultString;
+
+            infoWindow.Show();
+        }
 
         //Kysymysmerkki-painikkeen toiminta.
         //Painike avaa ikkunan jossa on selitys miten valittu lajittelualgoritmi toimii.
