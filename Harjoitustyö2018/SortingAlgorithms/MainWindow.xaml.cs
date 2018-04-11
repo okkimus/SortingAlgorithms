@@ -32,7 +32,7 @@ namespace SortingAlgorithms
         }
 
 
-        
+
         //"Luo lista" -painikkeen toiminta.
         //Tallentaa list -arrayhin listan sekalaisia lukuja, sekä kloonaa listan unsortedList ja tempList listoihin.
         //unsortedList on olemassa jotta "Näytä lista" -painike näyttäisi alkuperäisen, lajittelemattoman, listan.
@@ -70,28 +70,16 @@ namespace SortingAlgorithms
             //Jokaiselle listLengthComboBoxin itemille annettu uniikki Tag.
             //Itemien Tagit ovat kokonaislukuja joidenka avulla listan pituus voidaan laskea.
             var tag = Convert.ToInt32(((ComboBoxItem)listLengthComboBox.SelectedItem).Tag.ToString());
-            
+
             //Listan pituus on 2 potenssiin valitun ComboBoxItemin tägi.
             //Esim. ensimmäisem itemin, eli "256 lukua", tag on 8 ---> value = 2^8.
             value = Convert.ToInt32(Math.Pow(2, tag));
-            
+
             return value;
         }
-        
-        
-        //"Lajittele lista" -painikkeen toiminta.
-        //Lajittelee tallennetun listan käyttäjän valitsemalla lajittelualgoritmilla.
-        private void SortListButton_Click(object sender, RoutedEventArgs e)
-        {
-            SortingMachine.Quicksort(list, 0, list.Length - 1);
-            listSortedNotification.Visibility = Visibility.Visible;
-            listSorted = true;
 
-            //Lajiteltu lista kloonataan tempList:iin ja list:iin kloonataan unsortedList.
-            //Tämä sen takia, jotta käyttäjän ei tarvitse aina luoda uutta listaa jokaiselle algoritmille.
-            tempList = (int[])list.Clone();
-            list = (int[])unsortedList.Clone();
-        }
+
+
 
 
         //"Näytä lajiteltu lista" -painikkeen toiminta.
@@ -113,64 +101,117 @@ namespace SortingAlgorithms
             listWindow.Show();
         }
 
+
+        //"Suorita lajittelu" -painikkeen toiminta.
+        //Lajittelee valitut listat 10 kertaa ja näyttää keskiarvon käyttäjälle.
+        //Suoritusajat näytetään omassa ikkunassaan.
         private void CompareSortsButton_Click(object sender, RoutedEventArgs e)
         {
-            long[] results = timer.TimeAll(30, list);
-
             Window1 infoWindow = new Window1();
 
-            String resultString = String.Format("Lista järjestettiin kolmella järjestysalgoritmilla 30 kertaa. \n"
-                + "Suoritusten kestot:\n"
-                + "Kuplalajittelun kokonaisaika {0}ms ja keskiarvo {3}ms,\n"
-                + "Kekolajittelun kokonaisaika {1}ms ja keskiarvo {4}ms,\n"
-                + "Pikalajittelun kokonaisaika {2}ms ja keskiarvo {5}ms.",
-                results[0], results[1], results[2], results[0] / 30, results[1] / 30, results[2] / 30);
+            String resultString = String.Format("Lajittelu suoritettu onnistuneesti ajassa. Lajittelu toistettu 30 kertaa satunnaisvaihtelun minimoimiseksi.\n" +
+                                                "Tässä tulokset: \n\n");
+            String hsResult;
+            String bsResult;
+            String qsResult;
+
+            if (BubbleSortCheckBox.IsChecked.Value)
+            {
+                long bubbleSortResult = timer.TakeTime(30, 0, list);
+                bsResult = "Kuplalajittelun kokonaisaika " + bubbleSortResult + "ms ja keskiarvo " + (double)bubbleSortResult / 30 + "ms,\n";
+            }
+            else
+            {
+                bsResult = "";
+            }
+
+            if (HeapSortCheckBox.IsChecked.Value)
+            {
+                long heapSortResult = timer.TakeTime(30, 1, list);
+                hsResult = "Kekolajittelun kokonaisaika " + heapSortResult + "ms ja keskiarvo " + (double) heapSortResult / 30 + "ms,\n";
+            }
+            else
+            {
+                hsResult = "";
+            }
+
+            if (QuickSortCheckBox.IsChecked.Value)
+            {
+                long quickSortResult = timer.TakeTime(30, 2, list);
+                qsResult = "Pikalajittelun kokonaisaika " + quickSortResult + "ms ja keskiarvo " + (double) quickSortResult / 30 + "ms,\n";
+            }
+            else
+            {
+                qsResult = "";
+            }
+
+
+            resultString += bsResult + hsResult + qsResult;
 
             infoWindow.listTextBlock.Text = resultString;
+            
+            listSorted = true;
+
+            tempList = (int[])list.Clone();
+            list = (int[])unsortedList.Clone();
 
             infoWindow.Show();
+            
         }
 
-        //Kysymysmerkki-painikkeen toiminta.
-        //Painike avaa ikkunan jossa on selitys miten valittu lajittelualgoritmi toimii.
-        private void AlgorithmInfoButton_Click(object sender, RoutedEventArgs e)
+        //INFOPAINIKKEIDEN TOIMINTA
+        //Kysymysmerkkipainike avaa uuden ikkunan jossa kerrotaan muutamalla lauseella lajittelualgoritmista jonka vieressä infopainike on.
+        
+
+        //Kekoklajitteluinfo
+        private void AlgorithmInfoButton1_Click(object sender, RoutedEventArgs e)
         {
             Window1 listWindow = new Window1
             {
                 Title = "Algoritmi-info"
             };
 
-            var algorithmTag = ((ComboBoxItem)algorithmComboBox.SelectedItem).Tag.ToString();
-
-            //Kekolajittelu info.
-            if (algorithmTag.Equals("A"))
-            {
-                listWindow.listTextBlock.Text = "Kekolajittelu on kekorakenteeseen perustuva lajittelualgoritmi. Lajiteltavasta listasta" +
+            listWindow.listTextBlock.Text = "Kekolajittelu on kekorakenteeseen perustuva lajittelualgoritmi. Lajiteltavasta listasta" +
                     "muodostetaan maksimikeko, jonka muodostamisen jälkeen suurin alkio laitetaan listan viimeiseksi ja alkio poistetaan " +
                     "lajittelusta. Tämän jälkeen lajiteltava lista käsitellään uudestaan maksimikekoehdon varmistamiseksi ja tätä " +
                     "jatketaan kunnes lista on lajiteltu.";
-            }
 
-            //Kuplalajittelu info.
-            else if (algorithmTag.Equals("B"))
-            {
-                listWindow.listTextBlock.Text = "Kuplalajittelu on erittäin hidas algoritmi, joka käy koko lajiteltavan listan läpi" +
-                    "vertaillen kutakin kahta peräkkäistä listan alkiota toisiinsa. Jos alkiot ovat väärässä järjestyksessä algoritmi " +
-                    "vaihtaa alkiot keskenään. Kuplalajittelu on erittäin hidas, eikä se tarjoa mitään etuja muihin lajittelualgoritmeihin " +
-                    "verratuna.";
-            }
-
-            //Lomituslajittelu info.
-            else if (algorithmTag.Equals("C"))
-            {
-                listWindow.listTextBlock.Text = "Lomituslajittelussa lajiteltavaa listaa jaetaan pienempiin osajoukkoihin, jotka lajitellaan " +
-                    "itsenäisesti jonka jälkeen osajoukot yhdistään takaisin yhdeksi listaksi. Lomituslajittelu on tehokas ja vakaa " +
-                    "lajittelualgoritmi, mutta vaatii tavallisen vektorimuotoisen listan lajittelussa enemmän muistia. Tämä algoritmi " +
-                    "on erityisen hyödyllinen linkitettyjen listojen järjestämisessä.";
-            }
-
-            //Algoritmien selityksien lähteenä käytetty Wikipediaa.
             listWindow.Show();
         }
-    }
+
+
+        //Kuplalajitteluinfo
+        private void algorithmInfoButton2_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 listWindow = new Window1
+            {
+                Title = "Algoritmi-info"
+            };
+
+            listWindow.listTextBlock.Text = "Kuplalajittelu on erittäin hidas algoritmi, joka käy koko lajiteltavan listan läpi" +
+                        "vertaillen kutakin kahta peräkkäistä listan alkiota toisiinsa. Jos alkiot ovat väärässä järjestyksessä algoritmi " +
+                        "vaihtaa alkiot keskenään. Kuplalajittelu on erittäin hidas, eikä se tarjoa mitään etuja muihin lajittelualgoritmeihin " +
+                        "verratuna.";
+
+            listWindow.Show();
+        }
+
+
+        //Pikalajitteluinfo
+        private void algorithmInfoButton3_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 listWindow = new Window1
+            {
+                Title = "Algoritmi-info"
+            };
+
+            listWindow.listTextBlock.Text = "Lomituslajittelussa lajiteltavaa listaa jaetaan pienempiin osajoukkoihin, jotka lajitellaan " +
+                        "itsenäisesti jonka jälkeen osajoukot yhdistään takaisin yhdeksi listaksi. Lomituslajittelu on tehokas ja vakaa " +
+                        "lajittelualgoritmi, mutta vaatii tavallisen vektorimuotoisen listan lajittelussa enemmän muistia. Tämä algoritmi " +
+                        "on erityisen hyödyllinen linkitettyjen listojen järjestämisessä.";
+
+            listWindow.Show();
+        }
+    } 
 }
+

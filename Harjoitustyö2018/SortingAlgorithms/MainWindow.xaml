@@ -21,29 +21,33 @@
                 <ComboBoxItem Content="16,384 lukua" Tag="14"/>
             </ComboBox>
 
-            <Button x:Name="showListButton" Content="Näytä lista" HorizontalAlignment="Center" Margin="467,280,325,0" VerticalAlignment="Top" Width="100" Click="ShowListButton_Click"/>
+            <Button x:Name="showListButton" Content="Näytä lista" HorizontalAlignment="Center" Margin="465,280,327,0" VerticalAlignment="Top" Width="100" Click="ShowListButton_Click"/>
             <Button x:Name="makeListButton" Content="Luo lista" HorizontalAlignment="Center" Margin="325,280,467,0" VerticalAlignment="Top" Width="100" Click="MakeListButton_Click"/>
 
             <TextBlock x:Name="listCreatedNotification" HorizontalAlignment="Center" Margin="350,310,487,0" Text="Lista luotu" VerticalAlignment="Top" Visibility="Hidden"/>
 
-            <TextBlock x:Name="sceneTitle2" HorizontalAlignment="Center" Margin="265,366,255,0" Text="Valitse haluamasi lajittelualgoritmi" VerticalAlignment="Top" FontSize="18" Width="272"/>
+            <TextBlock x:Name="sceneTitle2" HorizontalAlignment="Center" Margin="265,366,255,0" Text="Valitse haluamasi lajittelualgoritmit" VerticalAlignment="Top" FontSize="18"/>
 
-            <ComboBox x:Name="algorithmComboBox" HorizontalAlignment="Center" Margin="0,410,0,0" VerticalAlignment="Top" Width="120" SelectedValuePath="Tag" SelectedIndex="0" >
-                <ComboBoxItem Content="Kekolajittelu" Tag="A"/>
-                <ComboBoxItem Content="Kuplalajittelu" Tag="B"/>
-                <ComboBoxItem Content="Lomituslajittelu" Tag="C"/>
-            </ComboBox>
 
-            <Button x:Name="algorithmInfoButton" HorizontalAlignment="Right" Margin="0,410,352,159" Width="22" Height="22" Click="AlgorithmInfoButton_Click">
+            <Button x:Name="algorithmInfoButton2" HorizontalAlignment="Right" Margin="0,407,362,193" Width="20" Height="20" Click="algorithmInfoButton2_Click">
                 <Image Source="questonmark.png"/>
             </Button>
 
-            <Button x:Name="sortListButton" Content="Lajittele lista" HorizontalAlignment="Center" Margin="255,500,417,0" VerticalAlignment="Top" Width="120" Click="SortListButton_Click"/>
-            <Button x:Name="showSortedListButton" Content="Näytä lajiteltu lista" HorizontalAlignment="Center" Margin="417,500,255,0" VerticalAlignment="Top" Width="120" Click="ShowSortedListButton_Click"/>
+            <Button x:Name="algorithmInfoButton1" HorizontalAlignment="Right" Margin="0,442,362,158" Width="20" Height="20" Click="AlgorithmInfoButton1_Click">
+                <Image Source="questonmark.png"/>
+            </Button>
+            
+            <Button x:Name="algorithmInfoButton3" HorizontalAlignment="Right" Margin="0,478,362,122" Width="20" Height="20" Click="algorithmInfoButton3_Click">
+                <Image Source="questonmark.png"/>
+            </Button>
+            
+            <Button x:Name="showSortedListButton" Content="Näytä lajiteltu lista" HorizontalAlignment="Center" Margin="465,525,307,0" VerticalAlignment="Top" Width="120" Click="ShowSortedListButton_Click"/>
 
-            <TextBlock x:Name="listSortedNotification" HorizontalAlignment="Center" Margin="240,570,413,0" Text="Algoritmi suoritti lajittelun ajassa: " VerticalAlignment="Top" FontSize="16" Visibility="Hidden"/>
+            <Button x:Name="compareAllButton" Content="Suorita lajittelu" HorizontalAlignment="Center" Margin="305,525,467,0" VerticalAlignment="Top" Width="120" Click="CompareSortsButton_Click"/>
 
-            <Button x:Name="compareAllButton" Content="Suorita kaikki" HorizontalAlignment="Center" Margin="255,600,417,0" VerticalAlignment="Top" Width="120" Click="CompareSortsButton_Click"/>
+            <CheckBox x:Name="BubbleSortCheckBox" Content="Kuplalajittelu" HorizontalAlignment="Left" Margin="405,412,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="HeapSortCheckBox" Content="Kekolajittelu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="405,447,0,0"/>
+            <CheckBox x:Name="QuickSortCheckBox" Content="Pikalajittelu" HorizontalAlignment="Left" Margin="405,483,0,0" VerticalAlignment="Top"/>
             
         </Grid>
     </Viewbox>
