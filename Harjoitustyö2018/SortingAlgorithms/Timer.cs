@@ -25,6 +25,11 @@ namespace SortingAlgorithms
         
         public long TakeTime(int repeats, int sortingAlgorithm, int[] list)
         {
+            if (list.Length < 1)
+            {
+                return 0;
+            }
+
             int[] warmUp = (int[])list.Clone();
 
             List<int[]> toBeSorted = new List<int[]>();

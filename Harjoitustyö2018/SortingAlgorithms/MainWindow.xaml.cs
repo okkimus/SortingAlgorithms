@@ -119,12 +119,12 @@ namespace SortingAlgorithms
 
             Window1 infoWindow = new Window1();
 
-            String resultString = String.Format("The list was sorted with three different sorting algorithms. \n"
-                + "Times of execution:\n"
-                + "Bubblesort {0} ms,\n"
-                + "Heapsort {1} ms,\n"
-                + "Quicksort {2} ms,\n",
-                results[0], results[1], results[2]);
+            String resultString = String.Format("Lista järjestettiin kolmella järjestysalgoritmilla 30 kertaa. \n"
+                + "Suoritusten kestot:\n"
+                + "Kuplalajittelun kokonaisaika {0}ms ja keskiarvo {3}ms,\n"
+                + "Kekolajittelun kokonaisaika {1}ms ja keskiarvo {4}ms,\n"
+                + "Pikalajittelun kokonaisaika {2}ms ja keskiarvo {5}ms.",
+                results[0], results[1], results[2], results[0] / 30, results[1] / 30, results[2] / 30);
 
             infoWindow.listTextBlock.Text = resultString;
 
