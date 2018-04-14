@@ -30,3 +30,5 @@ C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgori
 C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.csproj.CoreCompileInputs.cache
 C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.exe
 C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\Window2.g.cs
+C:\Users\okkimus\koodaus\koulu\SortingAlgorithms\Harjoitustyö2018\SortingAlgorithms\obj\Debug\Window2.baml

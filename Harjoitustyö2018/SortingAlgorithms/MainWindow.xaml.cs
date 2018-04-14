@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -109,6 +110,23 @@ namespace SortingAlgorithms
         {
             Window1 infoWindow = new Window1();
 
+            bool isSorted = false;
+
+            Thread noticeThread = new Thread(() => {
+                Window2 noticeWindow = new Window2();
+                string notice = "Lajittelua suoritetaan! \n\nListan pituudesta riippuen tässä voi kestää hetki! :)";
+
+                noticeWindow.noticeTextBlock.Text = notice;
+                noticeWindow.Show();
+
+                while (!isSorted)
+                {
+                    
+                }
+            });
+            noticeThread.SetApartmentState(ApartmentState.STA);
+            noticeThread.Start();
+
             String resultString = String.Format("Lajittelu suoritettu onnistuneesti ajassa. Lajittelu toistettu 30 kertaa satunnaisvaihtelun minimoimiseksi.\n" +
                                                 "Tässä tulokset: \n\n");
             String hsResult;
@@ -118,7 +136,7 @@ namespace SortingAlgorithms
             if (BubbleSortCheckBox.IsChecked.Value)
             {
                 long bubbleSortResult = timer.TakeTime(30, 0, list);
-                bsResult = "Kuplalajittelun kokonaisaika " + bubbleSortResult + "ms ja keskiarvo " + (double)bubbleSortResult / 30 + "ms,\n";
+                bsResult = "Kuplalajittelun kokonaisaika " + bubbleSortResult + "ms ja keskiarvo " + ShortenDouble((double) bubbleSortResult / 30) + "ms,\n";
             }
             else
             {
@@ -128,7 +146,7 @@ namespace SortingAlgorithms
             if (HeapSortCheckBox.IsChecked.Value)
             {
                 long heapSortResult = timer.TakeTime(30, 1, list);
-                hsResult = "Kekolajittelun kokonaisaika " + heapSortResult + "ms ja keskiarvo " + (double) heapSortResult / 30 + "ms,\n";
+                hsResult = "Kekolajittelun kokonaisaika " + heapSortResult + "ms ja keskiarvo " + ShortenDouble((double) heapSortResult / 30) + "ms,\n";
             }
             else
             {
@@ -138,13 +156,12 @@ namespace SortingAlgorithms
             if (QuickSortCheckBox.IsChecked.Value)
             {
                 long quickSortResult = timer.TakeTime(30, 2, list);
-                qsResult = "Pikalajittelun kokonaisaika " + quickSortResult + "ms ja keskiarvo " + (double) quickSortResult / 30 + "ms,\n";
+                qsResult = "Pikalajittelun kokonaisaika " + quickSortResult + "ms ja keskiarvo " + ShortenDouble((double) quickSortResult / 30) + "ms,\n";
             }
             else
             {
                 qsResult = "";
             }
-
 
             resultString += bsResult + hsResult + qsResult;
 
@@ -152,11 +169,24 @@ namespace SortingAlgorithms
             
             listSorted = true;
 
-            tempList = (int[])list.Clone();
+            SortingMachine.Quicksort(tempList, 0, list.Length - 1);
             list = (int[])unsortedList.Clone();
 
+            isSorted = true;
             infoWindow.Show();
-            
+        }
+
+        private string ShortenDouble(double number)
+        {
+            string numberString = number.ToString();
+            int commaIndex = numberString.IndexOf(",");
+
+            if (commaIndex + 3 < numberString.Length)
+            {
+                numberString = numberString.Substring(0, commaIndex + 3);
+            }
+
+            return numberString;
         }
 
         //INFOPAINIKKEIDEN TOIMINTA

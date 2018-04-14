@@ -3,11 +3,11 @@
 namespace SortingAlgorithms
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Window2 : Window
     {
-        public Window1()
+        public Window2()
         {
             InitializeComponent();
         }
