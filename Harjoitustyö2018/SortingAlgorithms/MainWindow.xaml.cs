@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SortingAlgorithms
 {
@@ -52,6 +41,7 @@ namespace SortingAlgorithms
         private void ShowListButton_Click(object sender, EventArgs e)
         {
             Window1 listWindow = new Window1();
+            listWindow.Owner = this;
 
             if (unsortedList != null)
             {
@@ -88,6 +78,7 @@ namespace SortingAlgorithms
         private void ShowSortedListButton_Click(object sender, RoutedEventArgs e)
         {
             Window1 listWindow = new Window1();
+            listWindow.Owner = this;
 
             if (listSorted == true && list != null)
             {
@@ -109,6 +100,7 @@ namespace SortingAlgorithms
         private void CompareSortsButton_Click(object sender, RoutedEventArgs e)
         {
             Window1 infoWindow = new Window1();
+            infoWindow.Owner = this;
 
             bool isSorted = false;
 
@@ -170,7 +162,7 @@ namespace SortingAlgorithms
             listSorted = true;
 
             SortingMachine.Quicksort(tempList, 0, list.Length - 1);
-            list = (int[])unsortedList.Clone();
+            list = (int[]) unsortedList.Clone();
 
             isSorted = true;
             infoWindow.Show();
@@ -198,8 +190,9 @@ namespace SortingAlgorithms
         {
             Window1 listWindow = new Window1
             {
-                Title = "Algoritmi-info"
-            };
+                Title = "Algoritmi-info",
+                Owner = this
+        };
 
             listWindow.listTextBlock.Text = "Kekolajittelu on kekorakenteeseen perustuva lajittelualgoritmi. Lajiteltavasta listasta" +
                     "muodostetaan maksimikeko, jonka muodostamisen jälkeen suurin alkio laitetaan listan viimeiseksi ja alkio poistetaan " +
@@ -215,7 +208,8 @@ namespace SortingAlgorithms
         {
             Window1 listWindow = new Window1
             {
-                Title = "Algoritmi-info"
+                Title = "Algoritmi-info",
+                Owner = this
             };
 
             listWindow.listTextBlock.Text = "Kuplalajittelu on erittäin hidas algoritmi, joka käy koko lajiteltavan listan läpi" +
@@ -232,13 +226,15 @@ namespace SortingAlgorithms
         {
             Window1 listWindow = new Window1
             {
-                Title = "Algoritmi-info"
+                Title = "Algoritmi-info",
+                Owner = this
             };
 
-            listWindow.listTextBlock.Text = "Lomituslajittelussa lajiteltavaa listaa jaetaan pienempiin osajoukkoihin, jotka lajitellaan " +
-                        "itsenäisesti jonka jälkeen osajoukot yhdistään takaisin yhdeksi listaksi. Lomituslajittelu on tehokas ja vakaa " +
-                        "lajittelualgoritmi, mutta vaatii tavallisen vektorimuotoisen listan lajittelussa enemmän muistia. Tämä algoritmi " +
-                        "on erityisen hyödyllinen linkitettyjen listojen järjestämisessä.";
+            listWindow.listTextBlock.Text = "Pikalajittelu on epävakaa lajittelualgoritmi, jossa lajiteltavasta joukosta yksi alkio vertailukohdaksi. " +
+                "Alkio valitaan joko satunnaisesti, tai otetaan esimerkiksi joukon viimeinen alkio. Tätä valittua alkiota kutsutaan sarana-alkioksi (pivot), " +
+                "koska se yhdistää aineiston eri osia. Jäljellä olevat alkiot jaetaan kahteen ryhmään sarana-alkiota käyttäen (esimerkiksi niin, että toiseen ryhmään " +
+                "saranaa pienemmät ja toiseen saranaa suuremmat/yhtäsuuret). Tuloksena on tilanne, jossa löydetään sarana-alkion paikka edellä mainittujen ryhmien välistä." +
+                "Ryhmille jatketaan lajittelua rekursiivisesti, kunnes lajittelu on valmis.";
 
             listWindow.Show();
         }
