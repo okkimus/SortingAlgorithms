@@ -69,10 +69,6 @@ namespace SortingAlgorithms
             return value;
         }
 
-
-
-
-
         //"Näytä lajiteltu lista" -painikkeen toiminta.
         //Näyttää lajiteltu lista uudessa ikkunassa showListButton_Click() metodin tyyliin.
         private void ShowSortedListButton_Click(object sender, RoutedEventArgs e)
@@ -104,6 +100,7 @@ namespace SortingAlgorithms
 
             bool isSorted = false;
 
+            // Luodaan uusi säie ikkunan näyttämiseksi
             Thread noticeThread = new Thread(() => {
                 Window2 noticeWindow = new Window2();
                 string notice = "Lajittelua suoritetaan! \n\nListan pituudesta riippuen tässä voi kestää hetki! :)";
@@ -161,6 +158,7 @@ namespace SortingAlgorithms
             
             listSorted = true;
 
+            // Lajitellaan lista vielä pääikkunan toiminnallisuutta varten.
             SortingMachine.Quicksort(tempList, 0, list.Length - 1);
             list = (int[]) unsortedList.Clone();
 
@@ -168,6 +166,7 @@ namespace SortingAlgorithms
             infoWindow.Show();
         }
 
+        // Muokkaa luvusta merkkijonomuodon, jossa on enintään 2 desimaalia
         private string ShortenDouble(double number)
         {
             string numberString = number.ToString();
